@@ -1,14 +1,17 @@
 const express = require('express');
 const app = express();
-const path = require('path');
 
-app.use(express.static('../client'))
+//automatically grabs html and bundle.js
+app.use(express.static('../client'));
 
-app.get('/', function(req, res) {
-    res.sendFile('index.html')
+app.get('/list', function(req, res){
+
 })
 
-app.listen(3000, function(err){
+app.post('/list', function(req, res) {
+
+})
+app.listen(process.env.PORT || 3000, function(err){
     if(err) {
         console.log("There's an error! ", err)
     } else {

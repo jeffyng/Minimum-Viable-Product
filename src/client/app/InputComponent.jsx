@@ -3,9 +3,6 @@ import React from 'react';
 class InputComponent extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            waitingList: []
-        }
     }
     render() {
         return (
@@ -13,7 +10,7 @@ class InputComponent extends React.Component {
                 <input type='text' placeholder='Name' />
                 <input type="text" placeholder='Number of people'/>
                 <input type='text' placeholder='Phone Number'/>
-                <input type='submit'/>    
+                <button type='button'>Add</button>  
             </form>
         );
     }
