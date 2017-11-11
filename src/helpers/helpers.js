@@ -14,8 +14,8 @@ var requestHelper = {
         .then(response => console.log('axios posted!'))
         .catch(err => console.log('axios posting err ', err));
     },
-    sendText: (phoneNumber) => {
-        axios.post('/text', {phoneNumber: phoneNumber})
+    sendText: (person) => {
+        axios.post('/text', person)
         .then(response => console.log('axios sendText posted!'))
         .catch(err => console.log('axios sendText posting err ', err));
     },

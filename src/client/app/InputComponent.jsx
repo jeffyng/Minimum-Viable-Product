@@ -19,14 +19,22 @@ class InputComponent extends React.Component {
             isSeated: false,
             isWaiting: true
         }
-        newState.push(newPerson)
-        requestHelper.add(newPerson);
-        this.props.changeState(newState);
-        this.setState({
-            name: '',
-            numPeople: '',
-            phoneNumber: ''
-        })
+        if (newPerson.phoneNumber[0] !== '1') {
+            newPerson.phoneNumber = '1' + newPerson.phoneNumber;
+        }
+        if (newPerson.phoneNumber.length === 11) {
+            newState.push(newPerson)
+            requestHelper.add(newPerson);
+            this.props.changeState(newState);
+            this.setState({
+                name: '',
+                numPeople: '',
+                phoneNumber: ''
+            })
+        }
+        if (newPerson.phoneNumber.length !== 11) {
+            alert('incorrect phone number');
+        }
        
     }
     handleChange(e) {

@@ -1,7 +1,10 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
-var db = require('../database/index');
+const db = require('../database/index');
+const accountSid = require('./config').accountSid;
+const authToken = require('./config').authToken;
+const client = require('twilio')(accountSid, authToken);
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json())
@@ -13,7 +16,14 @@ app.get('/list', function(req, res) {
     db.findAll((err, result) => !err ? res.json(result) : res.json(err))
 })
 app.post('/text', function(req, res) {
-    //req.body.phoneNumber = "4159876543"
+    //req.body.phoneNumber = "14159876543"
+    client.messages.create({
+        to: req.body.phoneNumber,
+        from: '16502765412', 
+        body: `${req.body.name.toUpperCase()}, your table for ${req.body.numPeople} will be ready soon. Please be at the waiting area. Thank you!`
+    })
+    .then((message) => console.log(message.to))
+    .catch(err => console.log('twilio err ', err));
     console.log('server: got your post /text request: ', req.body.phoneNumber);
 })
 app.post('/list/add', function(req, res) {

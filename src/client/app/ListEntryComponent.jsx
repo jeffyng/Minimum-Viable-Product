@@ -13,8 +13,12 @@ class ListEntryComponent extends React.Component {
     }
      // text method- send post request to server, then server send request to api
     sendText() {
-        var phoneNumber = this.props.person.phoneNumber;
-        requestHelper.sendText(phoneNumber);
+        var person = {
+            name: this.props.person.name,
+            phoneNumber: this.props.person.phoneNumber,
+            numPeople: this.props.person.numPeople
+        }
+        requestHelper.sendText(person);
     }
       // no show method --deletes entry from state, send post request to server,
       //server tell database to switch waiting from True to False;
