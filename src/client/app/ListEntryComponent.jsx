@@ -1,4 +1,6 @@
 import React from 'react';
+import requestHelper from '../../helpers/helpers.js'
+
 
 class ListEntryComponent extends React.Component {
     constructor(props) {
@@ -15,7 +17,7 @@ class ListEntryComponent extends React.Component {
         var newState = oldState.filter(person => person.phoneNumber !== phoneNumber);
         this.props.changeState(newState);
     }
-    
+
     render() {
         return (
             <li>

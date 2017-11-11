@@ -1,5 +1,5 @@
 import React from 'react';
-
+import requestHelper from '../../helpers/helpers.js'
 class InputComponent extends React.Component {
     constructor(props) {
         super(props);
@@ -18,6 +18,7 @@ class InputComponent extends React.Component {
             phoneNumber: this.state.phoneNumber
         }
         newState.push(newPerson)
+        requestHelper.add(newPerson);
         this.props.changeState(newState);
         this.setState({
             name: '',
