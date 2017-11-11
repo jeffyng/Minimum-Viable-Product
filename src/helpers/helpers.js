@@ -5,8 +5,6 @@ var url = `localhost${port}/`;
 var requestHelper = {
     getFirst: () => {},
     add: (newPerson) => {
-        newPerson.seated = false;
-        newPerson.waiting = true;
         axios.post('/list/add', newPerson)
         .then(response => {
             console.log('axios posted!');

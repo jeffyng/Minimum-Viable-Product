@@ -15,7 +15,9 @@ class InputComponent extends React.Component {
         var newPerson = {
             name: this.state.name,
             numPeople: this.state.numPeople,
-            phoneNumber: this.state.phoneNumber
+            phoneNumber: this.state.phoneNumber,
+            isSeated: false,
+            isWaiting: true
         }
         newState.push(newPerson)
         requestHelper.add(newPerson);
