@@ -24,11 +24,13 @@ app.post('/list/add', function(req, res) {
 
 app.post('/list/noshow', function(req, res) {
     var notWaiting = {isWaiting: false}
-    db.updateDB(req.body, notWaiting)
+    db.updateDB(req.body, notWaiting);
     console.log('server: got your post noshow request: ', req.body.phoneNumber);
 })
 
 app.post('/list/seat', function(req, res) {
+    var seated = {isSeated: true, isWaiting: false};
+    db.updateDB(req.body, seated);
     console.log('server: got your post seat request:', req.body.phoneNumber);
 })
 
