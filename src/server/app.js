@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
+var db = require('../database/index');
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json())
@@ -17,6 +18,7 @@ app.post('/text', function(req, res) {
     console.log('server: got your post /text request: ', req.body.phoneNumber);
 })
 app.post('/list/add', function(req, res) {
+    db.addToDB(req.body);
     console.log("server: got your post add request :", req.body.phoneNumber);
 })
 

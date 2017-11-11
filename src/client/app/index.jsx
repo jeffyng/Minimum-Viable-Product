@@ -2,8 +2,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import InputComponent from './InputComponent.jsx';
 import ListComponent from './ListComponent.jsx';
-import requestHelper from '../../helpers/helpers.js'
-import $ from 'jquery';
+import requestHelper from '../../helpers/helpers.js';
 
 class App extends React.Component {
   constructor() {
