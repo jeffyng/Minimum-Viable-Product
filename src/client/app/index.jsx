@@ -21,7 +21,19 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    requestHelper.getFirst(response => console.log(response));
+    requestHelper.getFirst(response => {
+    var newState = response.map(person => {
+      var newPerson = {
+      name: person.name,
+      numPeople: person.numPeople,
+      phoneNumber: person.phoneNumber,
+      isSeated: person.isSeated,
+      isWaiting: person.isWaiting
+    }
+    return newPerson;
+    })
+   this.changeState(newState);
+    });
   }
   render () {
     return <div>

@@ -10,8 +10,7 @@ app.use(express.static('../client')); //automatically grabs html and bundle.js
 
 app.get('/list', function(req, res) {
     var dummyObject = {yoyoyyy: 'sfasfsfsfs'}
-    console.log('server: got your get /list request')
-    res.json(dummyObject)
+    db.findAll((err, result) => !err ? res.json(result) : res.json(err))
 })
 app.post('/text', function(req, res) {
     //req.body.phoneNumber = "4159876543"

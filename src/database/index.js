@@ -21,12 +21,22 @@ var Customer = mongoose.model('Customer', customerSchema);
 //     isSeated: false,
 //     isWaiting: true
 // })
+
+module.exports.findAll = (callback) => Customer.find({isWaiting: true}, (err, result) => {
+    if(callback) {
+        err ? callback(err) : callback(null, result)
+    }
+})
+
 module.exports.addToDB = (personObj, callback) => {
     Customer.create(personObj), (err, result) => callback(err, result)}
-module.exports.updateDB = (queryObj, updateObj, callback) => {
+
+    module.exports.updateDB = (queryObj, updateObj, callback) => {
     Customer.findOneAndUpdate(queryObj, updateObj, (err, result) => {
         if(callback) {
-            err ? callback(err) : callback(null, result);
+            err ? callback(err) : callback(err, result)
+        } else {
+            err ? console.log(err) : console.log(result)
         }
     });
 }
