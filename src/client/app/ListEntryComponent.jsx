@@ -6,6 +6,11 @@ class ListEntryComponent extends React.Component {
     constructor(props) {
         super(props);
     }
+    removeFromList(phoneNumber) {
+        var oldState = this.props.getState();
+        var newState = oldState.filter(person => person.phoneNumber !== phoneNumber);
+        this.props.changeState(newState);
+    }
      // text method- send post request to server, then server send request to api
     sendText() {
         var phoneNumber = this.props.person.phoneNumber;
@@ -16,19 +21,14 @@ class ListEntryComponent extends React.Component {
     noShow() {
         var phoneNumber = this.props.person.phoneNumber;
         requestHelper.noShow(phoneNumber);
-        
+        this.removeFromList(phoneNumber);
     }
     // seated method - deletes entry from state, send post request to server,
     //server tell database to switch waiting from true to false and seated from false to true;
     seat() {
         var phoneNumber = this.props.person.phoneNumber;
         requestHelper.seat(phoneNumber);
-    }
-    removeFromList() {
-        var oldState = this.props.getState();
-        var phoneNumber = this.props.person.phoneNumber;
-        var newState = oldState.filter(person => person.phoneNumber !== phoneNumber);
-        this.props.changeState(newState);
+        this.removeFromList(phoneNumber);
     }
 
     render() {
