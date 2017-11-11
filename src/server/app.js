@@ -24,6 +24,10 @@ app.post('/list/noshow', function(req, res) {
     console.log('server: got your post noshow request: ', req.body.phoneNumber);
 })
 
+app.post('/list/seat', function(req, res) {
+    console.log('server: got your post seat request:', req.body.phoneNumber);
+})
+
 app.listen(port, function(err){
     if(err) {
         console.log("There's an error! ", err)

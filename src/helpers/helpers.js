@@ -16,13 +16,17 @@ var requestHelper = {
     sendText: (phoneNumber) => {
         axios.post('/text', {phoneNumber: phoneNumber})
         .then(response => console.log('axios sendText posted!'))
-        .catch(err => console.log('axios sendText posting err ', err))
+        .catch(err => console.log('axios sendText posting err ', err));
     },
     noShow: (phoneNumber) => {
         axios.post('list/noshow', {phoneNumber: phoneNumber})
         .then(response => console.log('axios noshow posted!'))
-        .catch(err => console.log('axios noshow posting err ', err))
+        .catch(err => console.log('axios noshow posting err ', err));
     },
-    seated: ()=>{} 
+    seat: (phoneNumber) => {
+        axios.post('list/seat', {phoneNumber: phoneNumber})
+        .then(response => console.log('axios seat posted!'))
+        .catch(err => console.log('axios seat posting err ', err));
+    } 
 }
 export default requestHelper;
