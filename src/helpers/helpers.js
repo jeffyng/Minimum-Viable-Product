@@ -10,12 +10,14 @@ var requestHelper = {
     },
     add: (newPerson) => {
         axios.post('/list/add', newPerson)
-        .then(response => {
-            console.log('axios posted!');
-        })
+        .then(response => console.log('axios posted!'))
         .catch(err => console.log('axios posting err ', err));
     },
-    sendText: () =>{},
+    sendText: (phoneNumber) => {
+        axios.post('/text', {phoneNumber: phoneNumber})
+        .then(response => console.log('axios sendText posted!'))
+        .catch(err => console.log('axios sendText posting err ', err))
+    },
     noShow: () => {},
     seated: ()=>{} 
 }

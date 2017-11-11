@@ -9,10 +9,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      waitingList: [
-        // {name: 'bob', numPeople: '2', phoneNumber: '4159876544'}, 
-        // {name: 'mary', numPeople: '5', phoneNumber: '6509387464'}
-      ]
+      waitingList: []
     }
   }
   changeState(newState) {
@@ -24,9 +21,6 @@ class App extends React.Component {
     return this.state.waitingList;
   }
 
-  // changestate method -
-
-  //componentdidmount - get request from server - database-
   componentDidMount() {
     requestHelper.getFirst(response => console.log(response));
   }
