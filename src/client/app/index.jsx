@@ -2,6 +2,8 @@ import React from 'react';
 import {render} from 'react-dom';
 import InputComponent from './InputComponent.jsx';
 import ListComponent from './ListComponent.jsx';
+import requestHelper from '../../helpers/helpers.js'
+import $ from 'jquery';
 
 class App extends React.Component {
   constructor() {
@@ -25,6 +27,9 @@ class App extends React.Component {
   // changestate method -
 
   //componentdidmount - get request from server - database-
+  componentDidMount() {
+    requestHelper.getFirst(response => console.log(response));
+  }
   render () {
     return <div>
         <h2> Waiting List </h2>

@@ -7,9 +7,11 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('../client')); //automatically grabs html and bundle.js
 
-app.get('/list', function(req, res){
-
+app.get('/list', function(req, res) {
+    var dummyObject = {yoyoyyy: 'sfasfsfsfs'}
+    res.json(dummyObject)
 })
+
 
 app.post('/list/add', function(req, res) {
     console.log("got your add :", req.body)

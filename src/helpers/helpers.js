@@ -3,7 +3,11 @@ var port = process.env.PORT || 3000;
 var url = `localhost${port}/`;
 
 var requestHelper = {
-    getFirst: () => {},
+    getFirst: (callback) => {
+        axios.get('/list')
+        .then(response => callback(response.data))
+        .catch(err => console.log('axios getfirst err ', err));
+    },
     add: (newPerson) => {
         axios.post('/list/add', newPerson)
         .then(response => {
