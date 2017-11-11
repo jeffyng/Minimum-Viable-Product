@@ -10,7 +10,7 @@ class ListComponent extends React.Component {
             <ol>
                 { 
                   this.props.waitingList.map(person => {
-                      return <ListEntryComponent person={person} key={person.phoneNumber} changeState={this.props.changeState}/>
+                      return <ListEntryComponent person={person} key={person.phoneNumber} getState={this.props.getState} changeState={this.props.changeState}/>
                   })
     
              

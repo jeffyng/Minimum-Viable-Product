@@ -29,7 +29,7 @@ class App extends React.Component {
     return <div>
         <h2> Waiting List </h2>
         <InputComponent getState={this.getState.bind(this)} changeState={this.changeState.bind(this)}/>
-        <ListComponent waitingList={this.state.waitingList} changeState={this.changeState.bind(this)}/>
+        <ListComponent waitingList={this.state.waitingList} getState={this.getState.bind(this)} changeState={this.changeState.bind(this)}/>
         </div>
   }
 }
