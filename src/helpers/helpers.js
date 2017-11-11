@@ -18,7 +18,11 @@ var requestHelper = {
         .then(response => console.log('axios sendText posted!'))
         .catch(err => console.log('axios sendText posting err ', err))
     },
-    noShow: () => {},
+    noShow: (phoneNumber) => {
+        axios.post('list/noshow', {phoneNumber: phoneNumber})
+        .then(response => console.log('axios noshow posted!'))
+        .catch(err => console.log('axios noshow posting err ', err))
+    },
     seated: ()=>{} 
 }
 export default requestHelper;

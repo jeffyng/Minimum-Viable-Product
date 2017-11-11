@@ -14,10 +14,14 @@ app.get('/list', function(req, res) {
 })
 app.post('/text', function(req, res) {
     //req.body.phoneNumber = "4159876543"
-    console.log('server: got your post /text request: ', req.body.phoneNumber)
+    console.log('server: got your post /text request: ', req.body.phoneNumber);
 })
 app.post('/list/add', function(req, res) {
-    console.log("server: got your post add request :", req.body)
+    console.log("server: got your post add request :", req.body.phoneNumber);
+})
+
+app.post('/list/noshow', function(req, res) {
+    console.log('server: got your post noshow request: ', req.body.phoneNumber);
 })
 
 app.listen(port, function(err){
