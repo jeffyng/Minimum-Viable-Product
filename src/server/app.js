@@ -23,6 +23,8 @@ app.post('/list/add', function(req, res) {
 })
 
 app.post('/list/noshow', function(req, res) {
+    var notWaiting = {isWaiting: false}
+    db.updateDB(req.body, notWaiting)
     console.log('server: got your post noshow request: ', req.body.phoneNumber);
 })
 
